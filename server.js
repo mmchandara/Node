@@ -15,7 +15,7 @@ con.connect(function(err) {
 app.use(express.json);
 
 // GET method route
-app.get('/api/products', (req, res) => {
+app.get('/api/products/', (req, res) => {
     con.query("SELECT * FROM products", function(err, result, fields) {
       if (err) throw err;
       console.log(result);
@@ -24,7 +24,7 @@ app.get('/api/products', (req, res) => {
   });
 
 // POST method route
-app.post('/api/products', (req, res) => {
+app.post('/api/products/', (req, res) => {
   var sql = "INSERT INTO products SET ?";
   var data = {
     Name:req.body.Name,
